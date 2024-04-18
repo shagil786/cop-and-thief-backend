@@ -28,7 +28,7 @@ This Node.js backend serves as the server-side component for the Fugitive Captur
 The backend exposes a single API endpoint for checking the capture status:
 
 ```
-POST /check-capture
+POST /capture
 ```
 
 This endpoint expects a JSON object with the following structure in the request body:
