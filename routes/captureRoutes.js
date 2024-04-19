@@ -8,13 +8,21 @@ const fugitiveCity = cities[fugitiveCityIndex];
 router.post("/", async (req, res) => {
   try {
     let { cop1, cop2, cop3 } = req.body;
-    const caputreStatus = [cop1, cop2, cop3].some(
-      (cop) =>
-        cop.city === fugitiveCity.name && cop.range >= fugitiveCity.distance,
-    );
+    let capturedCop = null;
+
+    const captureStatus = [cop1, cop2, cop3].some((cop) => {
+      const isWithinRange =
+        cop.city === fugitiveCity.name && cop.range >= fugitiveCity.distance;
+      if (isWithinRange) {
+        capturedCop = cop.name; // Store the name of the capturing cop
+      }
+      return isWithinRange;
+    });
+
     res.json({
-      message: caputreStatus ? "Captured" : "Not Captured",
+      copName: capturedCop,
       caputreStatus: caputreStatus,
+      message: captureStatus ? "Captured" : "Not Captured"
     });
   } catch (error) {
     console.error(error);
