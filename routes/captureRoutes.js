@@ -5,7 +5,7 @@ const cities = require("../controllers/cities");
 const fugitiveCityIndex = Math.floor(Math.random() * cities.length);
 const fugitiveCity = cities[fugitiveCityIndex];
 
-router.get("/", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     let { cop1, cop2, cop3 } = req.body;
     const caputreStatus = [cop1, cop2, cop3].some(
