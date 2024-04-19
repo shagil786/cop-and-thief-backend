@@ -6,7 +6,7 @@ router.get("/", async (req, res) => {
   try {
     res.json({
       message: "Vechiles Data Fetched",
-      cities: vechiles,
+      vechiles: vechiles,
     });
   } catch (error) {
     console.error(error);
