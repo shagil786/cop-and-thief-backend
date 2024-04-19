@@ -11,6 +11,7 @@ router.post("/", async (req, res) => {
     let capturedCop = null;
 
     const captureStatus = [cop1, cop2, cop3].some((cop) => {
+      console.log(cop);
       const isWithinRange =
         cop.city === fugitiveCity.name && cop.range >= fugitiveCity.distance;
       if (isWithinRange) {
