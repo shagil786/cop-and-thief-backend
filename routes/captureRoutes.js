@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     );
     res.json({
       message: caputreStatus ? "Captured" : "Not Captured",
-      cities: caputreStatus,
+      caputreStatus: caputreStatus,
     });
   } catch (error) {
     console.error(error);
