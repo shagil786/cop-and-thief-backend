@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
 
     res.json({
       copName: capturedCop,
-      caputreStatus: caputreStatus,
+      caputreStatus: captureStatus,
       message: captureStatus ? "Captured" : "Not Captured"
     });
   } catch (error) {
